@@ -21,7 +21,7 @@ const App = (props) => {
                 <Route path='/notebook' render={ () => <Notebook state={props.appState.notePage}/>}/>
                 <Route path='/tv' render={ () => <TV/>}/>
             </main>
-            <Footer/>
+            <Footer state={props.appState.footerPage}/>
           </div>
       </BrowserRouter>
   );

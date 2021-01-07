@@ -2,3 +2,8 @@
     background-color: blueviolet;
     grid-area: f;
 }
+
+.posts{
+    margin-top: 10px;
+    margin-left: 20px;
+}
