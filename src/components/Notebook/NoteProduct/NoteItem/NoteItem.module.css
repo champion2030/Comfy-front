@@ -1,0 +1,15 @@
+.productitem{
+    display: grid;
+    grid-template-columns: 240px;
+    grid-template-rows: 447px;
+}
+
+.item {
+    box-sizing: border-box;
+    text-align:center;
+    font-size: 1.1em;
+    padding: 1.5em;
+    color: red;
+}
+
+.color1 {background-color: #675BA7;}
