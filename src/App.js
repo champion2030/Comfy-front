@@ -9,8 +9,6 @@ import Notebook from "./components/Notebook/Notebook";
 import TV from "./components/TV/TV";
 
 const App = (props) => {
-
-
     return (
       <BrowserRouter>
           <div className="app-wrapper">
@@ -21,7 +19,9 @@ const App = (props) => {
                 <Route path='/notebook' render={ () => <Notebook state={props.appState.notePage}/>}/>
                 <Route path='/tv' render={ () => <TV/>}/>
             </main>
-            <Footer state={props.appState.footerPage}/>
+            <Footer state={props.appState.footerPage}
+                    newPostText={props.appState.footerPage.newPostText}
+                    dispatch={props.dispatch}/>
           </div>
       </BrowserRouter>
   );

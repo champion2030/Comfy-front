@@ -8,8 +8,13 @@ const Footer = (props) => {
     let postsElements = props.state.posts.map(post => <Post id={post.id} message={post.message}/>)
 
     let addPost = () => {
+        props.dispatch({type:'ADD-POST'});
+    }
+
+    let onPostChange = () => {
+        debugger;
         let text = newPostElement.current.value;
-        alert(text);
+        props.dispatch({type:'UPDATE-NEW-POST', newText:text});
     }
 
     return(
@@ -18,7 +23,7 @@ const Footer = (props) => {
             <h3>COMMENTS</h3>
             <div>
                 <div>
-                    <textarea ref={newPostElement}></textarea>
+                    <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
                 </div>
                 <div>
                     <button onClick={addPost}>Add comment</button>
