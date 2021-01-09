@@ -1,3 +1,5 @@
+import footerReducer from "./footer-reducer";
+
 let store = {
     _callSubscriber () {
         console.log("Changed");
@@ -36,27 +38,18 @@ let store = {
         return this._state;
     },
 
-    subscriber (observer) {
+    subscribe (observer) {
         this._callSubscriber = observer;
     },
 
     dispatch (action) {
-        if (action.type === 'ADD-POST'){
-            let newPost = {
-                id: 6,
-                message: this._state.footerPage.newPostText
-            };
-            this._state.footerPage.posts.push(newPost)
-            this._state.footerPage.newPostText = '';
-            this._callSubscriber(this._state);
-        }
-        else if (action.type === 'UPDATE-NEW-POST'){
-            this._state.footerPage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        }
+        this._state.footerPage = footerReducer(this._state.footerPage, action);
+        this._callSubscriber(this._state);
     }
 
 }
+
+
 
 window.store = store;
 export default store;
