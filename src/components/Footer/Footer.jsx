@@ -1,22 +1,20 @@
 import React from 'react'
 import s from "./Footer.module.css"
 import Post from "./Post/Post"
-import {addPostActionCreator, updateNewPostActionCreator} from "../../redux/footer-reducer";
 
 
 const Footer = (props) => {
     let newPostElement = React.createRef();
 
-    let postsElements = props.state.posts.map(post => <Post id={post.id} message={post.message}/>)
+    let postsElements = props.posts.map(post => <Post id={post.id} message={post.message}/>)
 
-    let addPost = () => {
-        props.dispatch(addPostActionCreator());
+    let onAddPost = () => {
+        props.addPost();
     }
 
     let onPostChange = () => {
-        debugger;
         let text = newPostElement.current.value;
-        props.dispatch(updateNewPostActionCreator(text));
+        props.updateNewPostText(text);
     }
 
     return(
@@ -28,7 +26,7 @@ const Footer = (props) => {
                     <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
                 </div>
                 <div>
-                    <button onClick={addPost}>Add comment</button>
+                    <button onClick={onAddPost}>Add comment</button>
                 </div>
             </div>
             <div className={s.posts}>

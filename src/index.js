@@ -6,20 +6,16 @@ import store from "./redux/redux-store";
 import ReactDOM from 'react-dom';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
 
 
-export let renderTree = (state) => {
-    ReactDOM.render(
-        <BrowserRouter>
-            <App appState={store.getState()} dispatch={store.dispatch.bind(store)}/>
-        </BrowserRouter>, document.getElementById('root'));
-}
+ReactDOM.render(
+    <BrowserRouter>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </BrowserRouter>, document.getElementById('root'));
 
-renderTree(store.getState());
 
-store.subscribe(() => {
-    let state = store.getState();
-    renderTree(state);
-});
 
 reportWebVitals();

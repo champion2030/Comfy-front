@@ -14,17 +14,23 @@ let initialState = {
 
 const footerReducer  = (state = initialState, action) => {
     switch (action.type){
-        case ADD_POST:
+        case ADD_POST: {
             let newPost = {
-                id: 6,
+                id: "6",
                 message: state.newPostText
             };
-            state.posts.push(newPost)
-            state.newPostText = '';
-            return state;
-        case UPDATE_NEW_POST:
-            state.newPostText = action.newText;
-            return state;
+            return {
+                ...state,
+                posts: [...state.posts, newPost],
+                newPostText: ''
+            };
+        }
+        case UPDATE_NEW_POST: {
+            return {
+                ...state,
+                newPostText: action.newText
+            };
+        }
         default:
             return state;
     }
