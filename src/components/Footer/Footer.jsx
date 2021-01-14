@@ -6,7 +6,7 @@ import Post from "./Post/Post"
 const Footer = (props) => {
     let newPostElement = React.createRef();
 
-    let postsElements = props.posts.map(post => <Post id={post.id} message={post.message}/>)
+    let postsElements = props.posts.map(post => <Post id={post.id} message={post.message} key={post.id}/>)
 
     let onAddPost = () => {
         props.addPost();

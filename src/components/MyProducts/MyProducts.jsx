@@ -5,7 +5,7 @@ import Product from "./Product/Product";
 const MyProducts = (props) => {
 
     let productsElements = props.productsData
-        .map(product => <Product title={product.title} first={product.first} second={product.second} third={product.third} fourth={product.fourth} fifth={product.fifth}/>)
+        .map(product => <Product key={product.id} title={product.title} first={product.first} second={product.second} third={product.third} fourth={product.fourth} fifth={product.fifth}/>)
 
     return(
         <div>
