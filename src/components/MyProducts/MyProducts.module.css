@@ -1,1 +1,35 @@
+.products{
+    display: grid;
+    grid-template-columns: 240px 240px 240px 240px 240px;
+    grid-template-rows: 447px;
+}
+.productItem{
+    display: grid;
+    grid-template-columns: 240px;
+    grid-template-rows: 447px;
+}
 
+.productAlign{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.comments{
+    margin-top: 20px;
+}
+
+.item {
+    box-sizing: border-box;
+    text-align:center;
+    font-size: 1.1em;
+    padding: 1.5em;
+    color: red;
+}
+
+.photo{
+    width: 168px;
+    height: 165px;
+}
+
+.color1 {background-color: white;}

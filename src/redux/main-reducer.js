@@ -1,14 +1,10 @@
 let BUY = 'BUY'
 let CANCEL = 'CANCEL'
+let SET_PRODUCTS = 'SET_PRODUCTS'
 
 let initialState = {
-    productsData: [
-        {id: 1, bought: false, title: "Смартфоны", first: "Acer", second: "Lenovo", third: "Asus", fourth: "Samsung", fifth: "Apple"},
-        {id: 2, bought: false, title: "Ноутбуки", first: "Meizu", second: "Redmi", third: "Asus", fourth: "Famous", fifth: "Rich"},
-        {id: 3, bought: false, title: "Телевизоры", first: "LG", second: "PHILIPS", third: "Old", fourth: "Very old", fifth: "Nice"},
-        {id: 4, bought: false, title: "Скидки", first: "LG", second: "PHILIPS", third: "Old", fourth: "Very old", fifth: "Nice"}
-    ]
-}
+    productsData: []
+};
 
 const mainReducer  = (state = initialState, action) => {
 
@@ -17,7 +13,7 @@ const mainReducer  = (state = initialState, action) => {
             return  {...state,
                 productsData: state.productsData.map(u => {
                         if (u.id === action.productId){
-                            return {...u, bought: true}
+                            return {...u, bought: false}
                         }
                         return u
                     }
@@ -26,11 +22,14 @@ const mainReducer  = (state = initialState, action) => {
             return  {...state,
                 productsData: state.productsData.map(u => {
                         if (u.id === action.productId){
-                            return {...u, bought: false}
+                            return {...u, bought: true}
                         }
                         return u
                     }
                 )}
+        case SET_PRODUCTS: {
+            return {...state, productsData: [...state.productsData, ...action.productsData]}
+        }
         default:
             return state
 
@@ -40,6 +39,8 @@ const mainReducer  = (state = initialState, action) => {
 
 export const buyProduct = (productId) => ({type: BUY, productId})
 export const cancelBought = (productId) => ({type: CANCEL, productId})
+export const setProductsAC = (products) => ({type: SET_PRODUCTS, products})
+
 
 
 export default mainReducer;
