@@ -6,12 +6,7 @@ let store = {
     },
     _state: {
         mainPage : {
-            productsData: [
-                {title: "Смартфоны", first: "Acer", second: "Lenovo", third: "Asus", fourth: "Samsung", fifth: "Apple"},
-                {title: "Ноутбуки", first: "Meizu", second: "Redmi", third: "Asus", fourth: "Famous", fifth: "Rich"},
-                {title: "Телевизоры", first: "LG", second: "PHILIPS", third: "Old", fourth: "Very old", fifth: "Nice"},
-                {title: "Скидки", first: "LG", second: "PHILIPS", third: "Old", fourth: "Very old", fifth: "Nice"}
-            ]
+            productsData: []
         },
 
         notePage: {
