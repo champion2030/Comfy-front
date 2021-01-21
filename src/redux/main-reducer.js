@@ -3,7 +3,10 @@ const CANCEL = 'CANCEL'
 const SET_PRODUCTS = 'SET-PRODUCTS'
 
 let initialState = {
-    productsData: [ ]
+    productsData: [ ],
+    pageSize: 5,
+    totalProductsCount: 20,
+    currentPage: 1
 };
 
 const mainReducer = (state = initialState, action) => {

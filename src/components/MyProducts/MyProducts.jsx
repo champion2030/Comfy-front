@@ -5,16 +5,29 @@ import axios from "axios";
 
 class MyProducts extends React.Component {
 
-    constructor(props){
-        super(props);
-        axios.get("http://localhost:5000/main").then(response => {
-                props.setProducts(response.data)
-            }
-        )
+    componentDidMount() {
+        if (this.props.productsData.length === 0) {
+            axios.get(`http://localhost:5000/main?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+                    this.props.setProducts(response.data)
+                }
+            )
+        }
     }
 
     render(){
-        return <div className={s.products}>
+
+        let pagesCount = Math.ceil(this.props.totalProductsCount / this.props.pageSize)
+        let pages = []
+        for (let i = 1; i < pagesCount; i++){
+            pages.push(i)
+        }
+        return <div>
+            <div>
+                {pages.map(p => {
+                    return <span className={this.props.currentPage === p && s.selectedPage}>{p}</span>
+                })}
+            </div>
+            <div className={s.products}>
             {
                 this.props.productsData.map(u => <div key={u.id}>
                     <div className={s.productItem}>
@@ -46,6 +59,7 @@ class MyProducts extends React.Component {
                     </div>
                 </div>)
             }
+            </div>
         </div>
     }
 

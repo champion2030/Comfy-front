@@ -5,7 +5,10 @@ import {buyProduct, cancelBought, setProductsAC} from "../../redux/main-reducer"
 
 let mapStateToProps = (state) => {
     return{
-        productsData: state.mainPage.productsData
+        productsData: state.mainPage.productsData,
+        pageSize: state.mainPage.pageSize,
+        totalProductsCount: state.mainPage.totalProductsCount,
+        currentPage: state.mainPage.currentPage
     }
 }
 
