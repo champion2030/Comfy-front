@@ -1,4 +1,3 @@
-import React from 'react'
 import {addPostActionCreator, updateNewPostActionCreator} from "../../redux/footer-reducer";
 import Footer from "./Footer";
 import {connect} from "react-redux";

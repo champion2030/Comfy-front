@@ -1,5 +1,4 @@
 import React from 'react'
-import s from "./TV.module.css"
 
 const TV = () => {
     return(

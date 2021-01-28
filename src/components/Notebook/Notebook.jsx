@@ -1,5 +1,4 @@
 import React from 'react'
-import s from "./Notebook.module.css"
 import NoteProduct from "./NoteProduct/NoteProduct";
 
 const Notebook = (props) => {

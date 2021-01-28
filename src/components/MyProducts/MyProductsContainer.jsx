@@ -1,7 +1,12 @@
-import React from 'react'
 import {connect} from "react-redux";
 import MyProducts from "./MyProducts";
-import {buyProduct, cancelBought, setProductsAC} from "../../redux/main-reducer";
+import {
+    buyProduct,
+    cancelBought,
+    setCurrentPageAC,
+    setProductsAC,
+    setProductsTotalCountAC
+} from "../../redux/main-reducer";
 
 let mapStateToProps = (state) => {
     return{
@@ -22,6 +27,12 @@ let mapDispatchToProps = (dispatch) => {
         },
         setProducts: (products) => {
             dispatch(setProductsAC(products))
+        },
+        setCurrentPage: (pageNumber) => {
+            dispatch(setCurrentPageAC(pageNumber))
+        },
+        setTotalProductsCount: (totalCount) => {
+            dispatch(setProductsTotalCountAC(totalCount))
         }
     }
 }
