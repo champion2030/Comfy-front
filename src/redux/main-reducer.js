@@ -1,15 +1,16 @@
-
 const BUY = 'BUY'
 const CANCEL = 'CANCEL'
 const SET_PRODUCTS = 'SET-PRODUCTS'
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE'
 const SET_TOTAL_PRODUCTS_COUNT = 'SET-TOTAL-PRODUCTS-COUNT'
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 
 let initialState = {
     productsData: [ ],
     pageSize: 5,
     totalProductsCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: false
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -52,6 +53,10 @@ const mainReducer = (state = initialState, action) => {
             return {...state, totalProductsCount: action.count}
         }
 
+        case TOGGLE_IS_FETCHING: {
+            return {...state, isFetching: action.isFetching}
+        }
+
         default:
             return state
 
@@ -61,9 +66,10 @@ const mainReducer = (state = initialState, action) => {
 
 export const buyProduct = (productId) => ({type: BUY, productId})
 export const cancelBought = (productId) => ({type: CANCEL, productId})
-export const setProductsAC = (productsData) => ({type: SET_PRODUCTS, productsData})
-export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
-export const setProductsTotalCountAC = (totalProductsCount) => ({type: SET_TOTAL_PRODUCTS_COUNT, count: totalProductsCount})
+export const setProducts = (productsData) => ({type: SET_PRODUCTS, productsData})
+export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
+export const setProductsTotalCount = (totalProductsCount) => ({type: SET_TOTAL_PRODUCTS_COUNT, count: totalProductsCount})
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 
 export default mainReducer;

@@ -17,6 +17,7 @@ const App = () => {
                 <Route exact path='/' render={ () => <MyProductsContainer/>}/>
                 <Route path='/content' render={ () => <MyProductsContainer/>}/>
                 <Route path='/notebook' render={ () => <NotebookContainer/>}/>
+                <Route path='/product' render={ () => <NotebookContainer/>}/>
                 <Route path='/tv' render={ () => <TV/>}/>
             </main>
             <FooterContainer/>

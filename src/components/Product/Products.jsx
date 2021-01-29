@@ -3,7 +3,7 @@ import s from "./MyProducts.module.css";
 import {NavLink} from "react-router-dom";
 
 
-let MyProducts = (props) => {
+let Products = (props) => {
     let pagesCount = Math.ceil(props.totalProductsCount / props.pageSize)
     let pages = []
     for (let i = 1; i < pagesCount; i++) {
@@ -57,4 +57,4 @@ let MyProducts = (props) => {
     </div>
 }
 
-export default MyProducts;
+export default Products;
