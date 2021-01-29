@@ -1,5 +1,5 @@
+import React from "react";
 import {connect} from "react-redux";
-import MyProducts from "./MyProducts";
 import {
     buyProduct,
     cancelBought,
@@ -7,6 +7,34 @@ import {
     setProductsAC,
     setProductsTotalCountAC
 } from "../../redux/main-reducer";
+import axios from "axios";
+import MyProducts from "./MyProducts.jsx";
+
+class MyProductsContainer extends React.Component {
+
+    componentDidMount() {
+        if (this.props.productsData.length === 0) {
+            axios.get(`http://localhost:5000/comfy/main?page=${this.props.currentPage}`).then(response => {
+                    this.props.setProducts(response.data)
+                    this.props.setTotalProductsCount(response.data.length)
+                }
+            )
+        }
+    }
+
+    onPageChanged = (pageNumber) => {
+        this.props.setCurrentPage(pageNumber)
+        axios.get(`http://localhost:5000/comfy/main?page=${pageNumber}`).then(response => {
+                this.props.setProducts(response.data)
+            }
+        )
+    }
+
+    render() {
+        return <MyProducts  {...this.props} onPageChanged={this.onPageChanged}/>
+    }
+}
+
 
 let mapStateToProps = (state) => {
     return{
@@ -38,6 +66,5 @@ let mapDispatchToProps = (dispatch) => {
 }
 
 
-const MyProductsContainer = connect(mapStateToProps, mapDispatchToProps)(MyProducts);
+export default connect(mapStateToProps, mapDispatchToProps)(MyProductsContainer);
 
-export default MyProductsContainer;
