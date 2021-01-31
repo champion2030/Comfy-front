@@ -14,10 +14,8 @@ import Preloader from "../common/Preloader/Preloader";
 class MyProductsContainer extends React.Component {
 
     componentDidMount() {
-        this.props.toggleIsFetching(true)
         if (this.props.productsData.length === 0) {
             axios.get(`http://localhost:5000/comfy/main?page=${this.props.currentPage}`).then(response => {
-                    this.props.toggleIsFetching(false)
                     this.props.setProducts(response.data)
                     this.props.setProductsTotalCount(response.data.length)
                 }
@@ -27,9 +25,7 @@ class MyProductsContainer extends React.Component {
 
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber)
-        this.props.toggleIsFetching(true)
         axios.get(`http://localhost:5000/comfy/main?page=${pageNumber}`).then(response => {
-                this.props.toggleIsFetching(false)
                 this.props.setProducts(response.data)
             }
         )

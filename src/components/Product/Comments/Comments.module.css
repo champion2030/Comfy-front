@@ -1,0 +1,9 @@
+.footer{
+    background-color: white;
+    grid-area: f;
+}
+
+.posts{
+    margin-top: 10px;
+    margin-left: 20px;
+}

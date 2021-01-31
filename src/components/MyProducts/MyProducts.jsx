@@ -33,10 +33,10 @@ let MyProducts = (props) => {
                                     {
                                         u.bought
                                             ? <button onClick={() => {
-                                                props.buy(u.id)
+                                                props.buyProduct(u.id)
                                             }}>Cancel</button>
                                             : <button onClick={() => {
-                                                props.cancel(u.id)
+                                                props.cancelBought(u.id)
                                             }}>Buy</button>
                                     }
                                 </div>

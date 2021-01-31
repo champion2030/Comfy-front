@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST = 'UPDATE-NEW-POST';
+const SET_PRODUCT_PROFILE = 'SET_PRODUCT_PROFILE';
 
 let initialState = {
     posts : [
@@ -9,10 +10,11 @@ let initialState = {
         {id: "4", message: "Nice computer"},
         {id: "5", message: "Nice day"}
     ],
-    newPostText : "new-text"
+    newPostText : "new-text",
+    profile: null
 }
 
-const footerReducer  = (state = initialState, action) => {
+const commentsReducer  = (state = initialState, action) => {
     switch (action.type){
         case ADD_POST: {
             let newPost = {
@@ -30,6 +32,10 @@ const footerReducer  = (state = initialState, action) => {
                 ...state,
                 newPostText: action.newText
             };
+        }
+
+        case SET_PRODUCT_PROFILE:{
+            return {...state, profile: action.profile}
         }
         default:
             return state;
@@ -49,4 +55,6 @@ export const updateNewPostActionCreator = (text) => {
     }
 }
 
-export default footerReducer;
+export const setProductsProfile = (profile) => ({type: SET_PRODUCT_PROFILE, profile})
+
+export default commentsReducer;
