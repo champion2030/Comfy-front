@@ -8,10 +8,10 @@ import {
     setProductsTotalCount, toggleIsFetching
 } from "../../redux/main-reducer";
 import axios from "axios";
-import MyProducts from "./MyProducts.jsx";
+import MainPage from "./MainPage.jsx";
 import Preloader from "../common/Preloader/Preloader";
 
-class MyProductsContainer extends React.Component {
+class MainPageContainer extends React.Component {
 
     componentDidMount() {
         if (this.props.productsData.length === 0) {
@@ -34,7 +34,7 @@ class MyProductsContainer extends React.Component {
     render() {
         return <>
             {this.props.isFetching ? <Preloader/> : null}
-            <MyProducts  {...this.props} onPageChanged={this.onPageChanged}/>
+            <MainPage  {...this.props} onPageChanged={this.onPageChanged}/>
         </>
     }
 }
@@ -57,5 +57,5 @@ export default connect(mapStateToProps, {
     setCurrentPage,
     setProductsTotalCount,
     toggleIsFetching
-})(MyProductsContainer);
+})(MainPageContainer);
 

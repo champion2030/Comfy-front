@@ -2,11 +2,11 @@ import React from "react";
 import ProductsInfo from "./ProductInfo/ProductsInfo";
 import CommentsContainer from "./Comments/CommentsContainer";
 
-const ProductProfile = () => {
+const ProductProfile = (props) => {
     return (
         <div>
-            <ProductsInfo/>
-            {/*<CommentsContainer/>*/}
+            <ProductsInfo profile={props.profile}/>
+            <CommentsContainer/>
         </div>
     )
 }
