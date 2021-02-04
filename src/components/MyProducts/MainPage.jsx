@@ -4,7 +4,8 @@ import {NavLink} from "react-router-dom";
 
 
 let MainPage = (props) => {
-    let pagesCount = Math.ceil(props.totalProductsCount / props.pageSize)
+    //let pagesCount = props.totalProductsCount / props.pageSize
+    let pagesCount = 1
     let pages = []
     for (let i = 1; i < pagesCount; i++) {
         pages.push(i)

@@ -24,7 +24,7 @@ const SecondLine = () => {
 
                 <Nav>
                     <Nav.Link href="#deets">Регистрация</Nav.Link>
-                    <Nav.Link href="#deets">Вход</Nav.Link>
+                    <Nav.Link href="#auth">Вход</Nav.Link>
                     <Nav.Link href="#memes">Связаться</Nav.Link>
                 </Nav>
             </Navbar>

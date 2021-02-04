@@ -3,17 +3,17 @@ import {connect} from "react-redux";
 import axios from "axios";
 import ProductProfile from "./ProductProfile";
 import {setProductsProfile} from "../../redux/comments-reducer";
+import {withRouter} from "react-router-dom";
 
 class ProductContainer extends React.Component {
 
     componentDidMount() {
-        axios.get(`http://localhost:5000/comfy/main/5`).then(response => {
+        let productId = this.props.match.params.productId
+        axios.get(`http://localhost:5000/comfy/main/${productId}`).then(response => {
                 this.props.setProductsProfile(response.data)
             }
         )
-
     }
-
 
     render() {
         return <>
@@ -29,7 +29,7 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {
-    setProductsProfile
-})(ProductContainer);
+let WithUrlDataContainerComponent = withRouter(ProductContainer)
+
+export default connect(mapStateToProps, {setProductsProfile})(WithUrlDataContainerComponent);
 
