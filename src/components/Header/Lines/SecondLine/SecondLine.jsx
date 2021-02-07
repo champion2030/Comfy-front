@@ -23,9 +23,10 @@ const SecondLine = () => {
                 </div>
 
                 <Nav>
-                    <Nav.Link href="#deets">Регистрация</Nav.Link>
-                    <Nav.Link href="#auth">Вход</Nav.Link>
-                    <Nav.Link href="#memes">Связаться</Nav.Link>
+
+                    <NavLink to="/register">Регистрация</NavLink>
+                    <NavLink to="/login">Вход</NavLink>
+                    <NavLink to="#memes">Связаться</NavLink>
                 </Nav>
             </Navbar>
 

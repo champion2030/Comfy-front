@@ -8,12 +8,16 @@ import NotebookContainer from "./components/Notebook/NotebookContainer";
 import MainPageContainer from "./components/MyProducts/MainPageContainer";
 import ProductContainer from "./components/Product/ProductContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Register from "./components/auth/authComponents/Register";
+import Login from "./components/auth/authComponents/Login";
 
 const App = (props) => {
     return (
         <div className="app-wrapper">
             <HeaderContainer/>
             <main className="main">
+                <Route path="/register" component={Register}/>
+                <Route path="/login" component={Login}/>
                 <Route exact path='/' render={() => <MainPageContainer/>}/>
                 <Route path='/content' render={() => <MainPageContainer/>}/>
                 <Route path='/notebook' render={() => <NotebookContainer/>}/>

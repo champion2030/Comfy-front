@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { GET_ERRORS, SET_CURRENT_USER } from './types';
-import setAuthToken from '../setAuthToken';
+import setAuthToken from '../../../setAuthToken';
 import jwt_decode from 'jwt-decode';
 
 export const registerUser = (user, history) => dispatch => {
-    axios.post('/api/users/register', user)
-        .then(res => history.push('/login'))
+    axios.post('http://localhost:5000/register', user)
+        .then(res => history.push('http://localhost:5000/login'))
         .catch(err => {
             dispatch({
                 type: GET_ERRORS,
@@ -15,7 +15,7 @@ export const registerUser = (user, history) => dispatch => {
 }
 
 export const loginUser = (user) => dispatch => {
-    axios.post('/api/users/login', user)
+    axios.post('http://localhost:5000/login', user)
         .then(res => {
             const { token } = res.data;
             localStorage.setItem('jwtToken', token);
@@ -42,5 +42,5 @@ export const logoutUser = (history) => dispatch => {
     localStorage.removeItem('jwtToken');
     setAuthToken(false);
     dispatch(setCurrentUser({}));
-    history.push('/login');
+    history.push('http://localhost:5000/login');
 }
