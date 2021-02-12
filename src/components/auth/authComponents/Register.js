@@ -11,6 +11,7 @@ class Register extends Component {
         super();
         this.state = {
             name: '',
+            lastName: '',
             email: '',
             password: '',
             password_confirm: '',
@@ -30,6 +31,7 @@ class Register extends Component {
         e.preventDefault();
         const user = {
             name: this.state.name,
+            lastName: this.state.lastName,
             email: this.state.email,
             password: this.state.password,
             password_confirm: this.state.password_confirm
@@ -70,6 +72,19 @@ class Register extends Component {
                             name="name"
                             onChange={ this.handleInputChange }
                             value={ this.state.name }
+                        />
+                        {errors.name && (<div className="invalid-feedback">{errors.name}</div>)}
+                    </div>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            placeholder="Last Name"
+                            className={classnames('form-control form-control-lg', {
+                                'is-invalid': errors.name
+                            })}
+                            name="name"
+                            onChange={ this.handleInputChange }
+                            value={ this.state.lastName }
                         />
                         {errors.name && (<div className="invalid-feedback">{errors.name}</div>)}
                     </div>
